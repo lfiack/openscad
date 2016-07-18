@@ -1,37 +1,65 @@
 include <motor_support.scad>
 include <bottom_plate.scad>
 include <top_plate.scad>
+include <cheek_support.scad>
 include <../parts/pololu_37Dx52L.scad>
+include <../parts/generic_wheel.scad>
 
 $d_robot = 300;
 $h_robot = 80;
 
 $d_wheel = 60;
-$l_wheel = 20;
+$l_wheel = 30;
+
+$l_screw = 16;
 
 translate([0,0,3]) {
     bottom_plate($d_robot,$d_wheel,$l_wheel);
 }
 
-translate([$d_robot/2-$l_wheel-3-6,0,40]) {
-    color([1,0,0])
-    motor_support($h_robot);
+translate([90-3,0,52/2]) {
+    color([1,0,1])
+    motor_support(52);
 }
 
-translate([-($d_robot/2-$l_wheel-3-6),0,40]) {
-    color([1,0,0])
-    motor_support($h_robot);
+translate([-(90-3),0,52/2]) {
+    color([1,0,1])
+    motor_support(52);
 }
 
-translate([0,0,$h_robot-3]) {
-    bottom_plate($d_robot);
-}
+//translate([0,0,$h_robot-3]) {
+//    top_plate($d_robot);
+//}
 
-translate([$d_robot/2-$l_wheel-6-6,0,25]) {
+translate([90-6,0,25]) {
     pololu_37Dx52L();
 }
 
 rotate([0,0,180])
-translate([$d_robot/2-$l_wheel-6-6,0,25]) {
+translate([90-6,0,25]) {
     pololu_37Dx52L();
+}
+
+//rotate([0,0,180])
+//translate([$d_robot/2-$l_wheel+10,0,18]) {
+//    color([0,0,1])
+//    generic_wheel(d_wheel=60, d_shaft=6, width=10);
+//}
+//
+//translate([$d_robot/2-$l_wheel+10,0,18]) {
+//    color([0,0,1])
+//    generic_wheel(d_wheel=60, d_shaft=6, width=10);
+//}
+
+for (i = [0:7]) {
+    rotate([0,0,45*i]) {
+    translate([$d_robot/2-3, 48, $h_robot/2]) {
+        color([0,i/8,1-i/8])
+        cheek_support($h_robot);
+    }
+    translate([$d_robot/2-3, -48, $h_robot/2]) {
+        color([i/8,0,1-i/8])
+        cheek_support($h_robot);
+    }
+}
 }

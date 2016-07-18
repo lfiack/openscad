@@ -9,10 +9,10 @@ module bottom_plate(d,dWheel,lWheel) {
 		}
 
 		// Holes for wheels
-		translate([d/2-lWheel/2-6,0,0]) {
+		translate([90+lWheel/2,0,0]) {
 			cube([lWheel,dWheel,10], center=true);
 		}
-		translate([-(d/2-lWheel/2-6),0,0]) {
+		translate([-90-lWheel/2,0,0]) {
 			cube([lWheel,dWheel,10], center=true);
 		}
 	}
