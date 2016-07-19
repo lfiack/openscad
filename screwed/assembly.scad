@@ -1,4 +1,5 @@
 include <motor_support.scad>
+include <motor_support2.scad>
 include <bottom_plate.scad>
 include <top_plate.scad>
 include <cheek_support.scad>
@@ -27,7 +28,13 @@ translate([-(90-3),0,52/2]) {
     motor_support(52);
 }
 
+translate([0,0,52-3]) {
+	color([1,1,0])
+	motor_support2();
+}
+
 //translate([0,0,$h_robot-3]) {
+//	color([1,1,0])
 //    top_plate($d_robot);
 //}
 
@@ -53,13 +60,17 @@ translate([90-6,0,25]) {
 
 for (i = [0:7]) {
     rotate([0,0,45*i]) {
-    translate([$d_robot/2-3, 48, $h_robot/2]) {
+    translate([$d_robot/2-10, 50, $h_robot/2]) {
         color([0,i/8,1-i/8])
-        cheek_support($h_robot);
+		rotate([0,0,90]) {
+        	cheek_support($h_robot);
+		}
     }
-    translate([$d_robot/2-3, -48, $h_robot/2]) {
+    translate([$d_robot/2-10, -50, $h_robot/2]) {
         color([i/8,0,1-i/8])
-        cheek_support($h_robot);
+		rotate([0,0,90]) {
+        	cheek_support($h_robot);
+		}
     }
 }
 }
