@@ -1,7 +1,7 @@
 include <../utils/screw_slot.scad>
 include <battery.scad>
 
-module internal_support(hBat,wBat) {
+module batSupport(hBat,wBat) {
 	$battFromBottom=6;
 	$spaceBetweenBatteries=10;
 
@@ -78,5 +78,5 @@ module internal_support(hBat,wBat) {
 }
 
 //projection(cut=false) {
-//	internal_support(45,23);
+//	batSupport(45,23);
 //}
