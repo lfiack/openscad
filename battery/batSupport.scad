@@ -26,11 +26,11 @@ module batSupport(hBat,wBat) {
 			}
 			// Slot for battery 1
 			translate([0,wBat/2+$spaceBetweenBatteries/2,0]) {
-				battery(hBat,wBat,$woodWidth+2);
+				#battery(hBat,wBat,$woodWidth+2);
 			}
 			// Slot for battery 2
 			translate([0,-(wBat/2+$spaceBetweenBatteries/2),0]) {
-				battery(hBat,wBat,$woodWidth+2);
+				#battery(hBat,wBat,$woodWidth+2);
 			}
 			// 3 screw slots
 			translate([-($woodWidth/2+0.5+hBat/2-wBat/2),0,0]) {
