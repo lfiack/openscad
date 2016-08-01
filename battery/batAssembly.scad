@@ -18,14 +18,22 @@ $hPlate=$hBat+$spaceForFixation;
 
 batBottom($hBat,$wBat,$lBat);
 
-translate([$lPlate/2-11,0,$distBottom+1.5]) {
+translate([$lPlate/2-3,0,$distBottom+1.5]) {
 	color([1,0,0])
 	rotate([0,90,0]) {
 		batSupport($hBat,$wBat);
 	}
 }
 
-translate([$lPlate/2-$lBat+19,0,$distBottom+1.5]) {
+translate([-($lPlate/2-3),0,$distBottom+1.5]) {
+	color([1,0,0])
+	rotate([0,90,0]) {
+		batSupport($hBat,$wBat);
+	}
+}
+
+//translate([$lPlate/2-$lBat+19,0,$distBottom+1.5]) {
+translate([0,0,$distBottom+1.5]) {
 	color([1,0,0])
 	rotate([0,90,0]) {
 		batSupport($hBat,$wBat);

@@ -22,10 +22,14 @@ module batLateral(hBat,wBat,lBat) {
 
 	difference() {
 		cube([$lPlate,$woodWidth,$hPlate],center=true);
-		translate([$lPlate/2-11,0,0]) {
+		translate([$lPlate/2-3,0,0]) {
 			internalSupportHole($distBottom,$distTopSlot,$woodWidth);
 		}
-		translate([$lPlate/2-lBat+19,0,0]) {
+		translate([-($lPlate/2-3),0,0]) {
+			internalSupportHole($distBottom,$distTopSlot,$woodWidth);
+		}
+//		translate([$lPlate/2-lBat+19,0,0]) {
+		translate([0,0,0]) {
 			internalSupportHole($distBottom,$distTopSlot,$woodWidth);
 		}
 	}
